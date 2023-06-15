@@ -13,4 +13,10 @@ final class HomeRouter: HomeRouterDelegate {
     init(view: HomeViewControllerDelegate?) {
         source = view as? UIViewController
     }
+    
+    func pushToMovieDetail(_ movieId: Int) {
+        let vc = DetailMovieViewController()
+        vc.movieId = movieId
+        source?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

@@ -7,9 +7,8 @@
 
 import Foundation
 
-final class HomeInteractor: HomeResponseProtocol {
-    weak var presenter: HomeInteractorOutputDelegate?
-    
+final class HomeInteractor {
+    weak var presenter: HomeInteractorOutputDelegate? 
     private var homeDM: HomeDMRequestProtocol?
     var isLoadingData: Bool = false
     
@@ -34,7 +33,7 @@ extension HomeInteractor: HomeInteractorInputDelegate {
 }
 
 
-extension HomeInteractor: HomeInteractorOutputDelegate {
+extension HomeInteractor: HomeResponseProtocol {
     
     func successGetGenreList(_ response: ApiResponse<GenreListModel>) {
         presenter?.successGetGenreList(response)

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class MovieListCell: UITableViewCell, MovieCollectionCellProtocol {
+class MovieListCell: UITableViewCell {
 
     @IBOutlet weak var movieBackgroundImg: UIImageView!
     @IBOutlet weak var movieBackgroundView: UIView!

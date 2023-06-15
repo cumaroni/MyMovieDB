@@ -7,7 +7,6 @@
 
 import Foundation
  
-
 final class HomePresenter {
     weak var view: HomeViewControllerDelegate?
     lazy var router: HomeRouterDelegate = HomeRouter(view: view)
@@ -62,6 +61,10 @@ extension HomePresenter: HomePresenterDelegate {
         self.interactor.getMovieListByGenre(id: id, page: currentPage)
     }
     
+    func pushToMovieDetail(_ movieId: Int) {
+        router.pushToMovieDetail(movieId)
+    }
+    
 }
 
 extension HomePresenter: HomeInteractorOutputDelegate {
@@ -82,8 +85,7 @@ extension HomePresenter: HomeInteractorOutputDelegate {
     }
     
     func successGetMovieList(_ response: ApiResponse<MoviesListModel>) {
-        self.view?.setMovieListData(response.data)
-        self.interactor.isLoadingData = false
+        self.view?.setMovieListData(response.data, totalResult: response.totalResult)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { 
             self.view?.showLoadingView(false)
             self.view?.reloadTblView()
@@ -91,7 +93,6 @@ extension HomePresenter: HomeInteractorOutputDelegate {
     }
     
     func failedGetMovieList(_ error: ApiError) {
-        self.interactor.isLoadingData = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.view?.showLoadingView(false)
         }

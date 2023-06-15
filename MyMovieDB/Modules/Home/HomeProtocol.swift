@@ -7,18 +7,9 @@
 
 import UIKit
 
-protocol MovieCollectionCellProtocol: AnyObject {
-    func configureCell(with data: MoviesListModel)
-}
-
-protocol GenreCollectionCellProtocol: AnyObject {
-    func configureCell(with data: GenreListModel)
-    func setSelected(_ selected: Bool)
-}
- 
 protocol HomeViewControllerDelegate: AnyObject {
     func setGenreListData(_ data: [GenreListModel])
-    func setMovieListData(_ data: [MoviesListModel])
+    func setMovieListData(_ data: [MoviesListModel], totalResult: Int)
     func reloadCollectionView()
     func selectCell(at indexPath: IndexPath)
     func getFirstGenreIndexId() -> Int
@@ -34,15 +25,18 @@ protocol HomePresenterDelegate: AnyObject {
     func getSelectedGenreIndex() -> IndexPath?
     func selectFirstCell()
     func loadNextMoviePage(id: Int)
+    
+    func pushToMovieDetail(_ movieId: Int)
 }
 
 protocol HomeRouterDelegate: AnyObject {
     
+    func pushToMovieDetail(_ movieId: Int)
 }
 
 protocol HomeInteractorInputDelegate: AnyObject {
     
-    var isLoadingData: Bool { get set }
+    var isLoadingData: Bool { get }
     func getGenreList()
     func getMovieListByGenre(id: Int, page: Int)
     

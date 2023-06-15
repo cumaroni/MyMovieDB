@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SkeletonView
 
 class HomeViewController: UIViewController {
 
@@ -17,6 +16,7 @@ class HomeViewController: UIViewController {
     
     var genreListData: [GenreListModel] = []
     var movieListData: [MoviesListModel] = []
+    private var totalResult: Int = 0
     
     private let refreshControl = UIRefreshControl()
     
@@ -70,8 +70,9 @@ extension HomeViewController: HomeViewControllerDelegate {
         presenter.selectFirstCell()
     }
     
-    func setMovieListData(_ data: [MoviesListModel]) {
+    func setMovieListData(_ data: [MoviesListModel], totalResult: Int) {
         self.movieListData += data
+        self.totalResult = totalResult
     }
     
     func reloadCollectionView() {
@@ -129,6 +130,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
+        UIView.animate(withDuration: 2) {
+            self.moviesTblView.scrollsToTop = true
+        }
         movieListData.removeAll()
         presenter.didSelectGenre(
             id: genreListData[indexPath.row].id,
@@ -160,13 +164,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
         let lastSection = tableView.numberOfSections - 1
         let lastRow = tableView.numberOfRows(inSection: lastSection) - 1
         
         if indexPath.section == lastSection && indexPath.row == lastRow {
+            if totalResult == movieListData.count { return }
             let index = presenter.getSelectedGenreIndex() ?? IndexPath(row: 0, section: 0)
             presenter.loadNextMoviePage(id: genreListData[index.row].id)
         }
-    } 
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieId = movieListData[indexPath.row].id
+        presenter.pushToMovieDetail(movieId)
+    }
+    
 }

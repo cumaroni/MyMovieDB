@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GenreListCell: UICollectionViewCell, GenreCollectionCellProtocol {
+class GenreListCell: UICollectionViewCell {
      
     @IBOutlet weak var genreLbl: UILabel!
     @IBOutlet weak var lineView: UIView!
