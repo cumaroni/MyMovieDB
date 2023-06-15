@@ -11,7 +11,7 @@ public struct ApiResponse<Element: ApiModel>: ApiModel {
     
     public private(set) var data: [Element] = []
     public private(set) var model: Element! = Element(json: JSON.init(parseJSON: ""))
-    public private(set) var page: Int = 0
+    public private(set) var totalResult: Int = 0
     public private(set) var JSONResponse: JSON = JSON(parseJSON: "")
       
     public init(json: JSON) {
@@ -19,7 +19,7 @@ public struct ApiResponse<Element: ApiModel>: ApiModel {
         
         guard json["results"].arrayValue.count > 0 else {
             // model
-            model = Element(json: json["results"])
+            model = Element(json: json)
             return
         }
         
@@ -28,6 +28,6 @@ public struct ApiResponse<Element: ApiModel>: ApiModel {
             return Element(json: value)
         }
         
-        page = json["page"].intValue
+        totalResult = json["total_results"].intValue
     }
 }
