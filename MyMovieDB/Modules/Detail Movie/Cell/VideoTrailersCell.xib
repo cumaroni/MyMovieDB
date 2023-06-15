@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="VideoTrailersCell" customModule="MyMovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="202" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="202" height="166"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAW-tX-4iz">
+                        <rect key="frame" x="0.0" y="0.0" width="202" height="166"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P3W-ld-LDR">
+                                <rect key="frame" x="0.0" y="0.0" width="202" height="166"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icYoutube" translatesAutoresizingMaskIntoConstraints="NO" id="Bro-N6-Mib">
+                                <rect key="frame" x="70" y="58" width="62" height="50"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="P3W-ld-LDR" secondAttribute="bottom" id="4Ag-hK-CTL"/>
+                            <constraint firstItem="Bro-N6-Mib" firstAttribute="centerY" secondItem="oAW-tX-4iz" secondAttribute="centerY" id="Umh-70-mVc"/>
+                            <constraint firstAttribute="trailing" secondItem="P3W-ld-LDR" secondAttribute="trailing" id="W7i-lz-DHq"/>
+                            <constraint firstItem="Bro-N6-Mib" firstAttribute="width" secondItem="oAW-tX-4iz" secondAttribute="width" multiplier="0.306931" id="XcG-ce-h38"/>
+                            <constraint firstItem="Bro-N6-Mib" firstAttribute="centerX" secondItem="oAW-tX-4iz" secondAttribute="centerX" id="d00-wK-8Ha"/>
+                            <constraint firstItem="P3W-ld-LDR" firstAttribute="leading" secondItem="oAW-tX-4iz" secondAttribute="leading" id="gRQ-HU-P37"/>
+                            <constraint firstItem="P3W-ld-LDR" firstAttribute="top" secondItem="oAW-tX-4iz" secondAttribute="top" id="jeP-MP-w2b"/>
+                            <constraint firstItem="Bro-N6-Mib" firstAttribute="height" secondItem="oAW-tX-4iz" secondAttribute="height" multiplier="0.301205" id="pTd-h2-yKc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="oAW-tX-4iz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DKC-iI-Gdl"/>
+                <constraint firstAttribute="bottom" secondItem="oAW-tX-4iz" secondAttribute="bottom" id="Zfh-Tl-ubQ"/>
+                <constraint firstItem="oAW-tX-4iz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lRw-cK-Boe"/>
+                <constraint firstAttribute="trailing" secondItem="oAW-tX-4iz" secondAttribute="trailing" id="whm-y1-cKX"/>
+            </constraints>
+            <size key="customSize" width="300" height="233"/>
+            <connections>
+                <outlet property="playImg" destination="Bro-N6-Mib" id="Vxw-Iy-0Dp"/>
+                <outlet property="videoImg" destination="P3W-ld-LDR" id="TZP-6F-peF"/>
+                <outlet property="videoView" destination="oAW-tX-4iz" id="tDr-bM-aGq"/>
+            </connections>
+            <point key="canvasLocation" x="146.56488549618319" y="-46.478873239436624"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icYoutube" width="170.66667175292969" height="170.66667175292969"/>
+    </resources>
+</document>
