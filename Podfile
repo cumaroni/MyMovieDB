@@ -6,6 +6,10 @@ target 'MyMovieDB' do
   use_frameworks!
 
   # Pods for MyMovieDB
+  pod 'Alamofire'#, '5.6.4'
+  pod 'Kingfisher'#, '7.6.2'
+  pod 'SwiftyJSON'#, '5.0.1'
+  pod 'SkeletonView'#, '1.30.4'
 
   target 'MyMovieDBTests' do
     inherit! :search_paths
