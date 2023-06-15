@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="124" id="KGk-i7-Jjw" customClass="MovieListCell" customModule="MyMovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="470" height="124"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="470" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwp-J2-f9w" userLabel="Background Poster Container">
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="124"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k0K-hb-RAU">
+                                <rect key="frame" x="8" y="8" width="241" height="108"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k0K-hb-RAU" firstAttribute="top" secondItem="mwp-J2-f9w" secondAttribute="top" constant="8" id="0Py-wj-BWe"/>
+                            <constraint firstItem="k0K-hb-RAU" firstAttribute="leading" secondItem="mwp-J2-f9w" secondAttribute="leading" constant="8" id="6Lu-j3-bj6"/>
+                            <constraint firstAttribute="bottom" secondItem="k0K-hb-RAU" secondAttribute="bottom" constant="8" id="dGj-qX-uP4"/>
+                            <constraint firstAttribute="trailing" secondItem="k0K-hb-RAU" secondAttribute="trailing" id="e8J-HE-4ha"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="kiI-Yf-47c">
+                        <rect key="frame" x="255" y="8" width="207" height="108"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="The Super Mario Bros. Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afS-Xc-ZEe">
+                                <rect key="frame" x="0.0" y="0.0" width="207" height="14.333333333333334"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" red="0.079399016619999999" green="0.12908678639999999" blue="0.2294790095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKh-NE-nZn">
+                                <rect key="frame" x="0.0" y="16.333333333333336" width="207" height="91.666666666666657"/>
+                                <string key="text">While working underground to fix a water main, Brooklyn plumbers—and brothers—Mario and Luigi are transported down a mysterious pipe and wander into a magical new world. But when the brothers are separated, Mario embarks on an epic quest to find Luigi.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.08235294118" green="0.1647058824" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8o-EG-0Ow" userLabel="Poster Container">
+                        <rect key="frame" x="4" y="37" width="69.333333333333329" height="83"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9g4-Ho-F9D">
+                                <rect key="frame" x="8.0000000000000036" y="0.0" width="61.333333333333343" height="75"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9g4-Ho-F9D" firstAttribute="top" secondItem="h8o-EG-0Ow" secondAttribute="top" id="Klt-16-g0r"/>
+                            <constraint firstItem="9g4-Ho-F9D" firstAttribute="leading" secondItem="h8o-EG-0Ow" secondAttribute="leading" constant="8" id="LPM-2j-ayo"/>
+                            <constraint firstAttribute="bottom" secondItem="9g4-Ho-F9D" secondAttribute="bottom" constant="8" id="Mfn-5C-lHd"/>
+                            <constraint firstAttribute="trailing" secondItem="9g4-Ho-F9D" secondAttribute="trailing" id="he6-JH-wDl"/>
+                        </constraints>
+                    </view>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qur-xE-ayq">
+                        <rect key="frame" x="24" y="123" width="422" height="1"/>
+                        <color key="backgroundColor" red="0.079399016619999999" green="0.12908678639999999" blue="0.2294790095" alpha="0.4865331586623034" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="c3g-IW-YEm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="k0K-hb-RAU" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.870968" id="2lv-OT-o9i"/>
+                    <constraint firstAttribute="bottom" secondItem="mwp-J2-f9w" secondAttribute="bottom" id="5JB-PN-a4H"/>
+                    <constraint firstItem="9g4-Ho-F9D" firstAttribute="width" secondItem="k0K-hb-RAU" secondAttribute="width" multiplier="0.255144" id="5oG-qN-pcT"/>
+                    <constraint firstItem="9g4-Ho-F9D" firstAttribute="height" secondItem="k0K-hb-RAU" secondAttribute="height" multiplier="0.694444" id="8Kn-d5-Zxf"/>
+                    <constraint firstItem="h8o-EG-0Ow" firstAttribute="leading" secondItem="mwp-J2-f9w" secondAttribute="leading" constant="4" id="Bdc-iI-ZXM"/>
+                    <constraint firstAttribute="trailing" secondItem="kiI-Yf-47c" secondAttribute="trailing" constant="8" id="F0a-L0-RUf"/>
+                    <constraint firstItem="mwp-J2-f9w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GKj-SJ-t6E"/>
+                    <constraint firstItem="kiI-Yf-47c" firstAttribute="bottom" secondItem="mwp-J2-f9w" secondAttribute="bottom" constant="-8" id="VdF-fn-apM"/>
+                    <constraint firstItem="mwp-J2-f9w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WRU-7R-1ut"/>
+                    <constraint firstAttribute="trailing" secondItem="Qur-xE-ayq" secondAttribute="trailing" constant="24" id="aZo-if-4CF"/>
+                    <constraint firstAttribute="bottom" secondItem="Qur-xE-ayq" secondAttribute="bottom" id="dpm-9K-b7b"/>
+                    <constraint firstAttribute="centerX" secondItem="mwp-J2-f9w" secondAttribute="trailing" constant="-14" id="lXW-4L-lBK"/>
+                    <constraint firstItem="kiI-Yf-47c" firstAttribute="top" secondItem="mwp-J2-f9w" secondAttribute="top" constant="8" id="lnU-Sc-RtM"/>
+                    <constraint firstItem="Qur-xE-ayq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="sRp-3T-K8J"/>
+                    <constraint firstItem="kiI-Yf-47c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="20" id="zJC-35-Pre"/>
+                    <constraint firstItem="mwp-J2-f9w" firstAttribute="bottom" secondItem="h8o-EG-0Ow" secondAttribute="bottom" constant="4" id="zpg-6g-1aS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lineView" destination="Qur-xE-ayq" id="bia-PG-J9h"/>
+                <outlet property="movieBackgroundImg" destination="k0K-hb-RAU" id="bkZ-X2-0eL"/>
+                <outlet property="movieBackgroundView" destination="mwp-J2-f9w" id="7QW-HN-pwj"/>
+                <outlet property="movieDescLbl" destination="IKh-NE-nZn" id="w7W-7d-uH5"/>
+                <outlet property="moviePosterImg" destination="9g4-Ho-F9D" id="9Zt-x1-mwg"/>
+                <outlet property="moviePosterView" destination="h8o-EG-0Ow" id="TfN-Ki-oCp"/>
+                <outlet property="movieTitleLbl" destination="afS-Xc-ZEe" id="juX-Av-bR4"/>
+            </connections>
+            <point key="canvasLocation" x="166.41221374045801" y="33.098591549295776"/>
+        </tableViewCell>
+    </objects>
+</document>
