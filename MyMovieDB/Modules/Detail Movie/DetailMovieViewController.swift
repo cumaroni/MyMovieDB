@@ -10,6 +10,9 @@ import SkeletonView
 
 class DetailMovieViewController: UIViewController {
     
+    
+    @IBOutlet weak var errorView: UIStackView!
+    @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var backgroundImg: UIImageView!
@@ -108,6 +111,9 @@ class DetailMovieViewController: UIViewController {
         presenter.pushToReview(movieDetailModel?.id ?? 0)
     }
     
+    @IBAction func retryBtnPressed(_ sender: Any) {
+        presenter.getMovieDetail()
+    }
 }
 
 extension DetailMovieViewController: DetailMovieViewControllerDelegate {
@@ -120,10 +126,21 @@ extension DetailMovieViewController: DetailMovieViewControllerDelegate {
     
     func showLoadingView(_ toggle: Bool) {
         if toggle {
-            self.contentView.showAnimatedSkeleton()
+            self.scrollView.showLoading()
         } else {
-            self.contentView.hideSkeleton()
+            self.scrollView.hideLoading()
         }
+    }
+    
+    func showErrorView(_ error: ApiError) {
+        contentView.isHidden = true
+        errorLbl.text = error.messages
+        errorView.isHidden = false
+    }
+    
+    func hideErrorView() {
+        contentView.isHidden = false
+        errorView.isHidden = true
     }
     
 }

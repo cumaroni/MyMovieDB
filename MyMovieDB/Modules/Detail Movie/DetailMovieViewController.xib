@@ -14,6 +14,8 @@
                 <outlet property="backgroundImg" destination="bV3-Jw-T4h" id="QwW-73-cTG"/>
                 <outlet property="contentView" destination="xkv-o8-Dkw" id="yr3-la-RtX"/>
                 <outlet property="dateAndGenreLbl" destination="Vhs-G5-rzl" id="lIi-a9-aiH"/>
+                <outlet property="errorLbl" destination="Agg-x2-Fdb" id="67j-dQ-iyh"/>
+                <outlet property="errorView" destination="Hso-47-sNh" id="Izz-YR-pvT"/>
                 <outlet property="langLbl" destination="RSC-BR-eOB" id="wDX-LE-Vo8"/>
                 <outlet property="langView" destination="cfS-Oa-gJn" id="Z4E-ry-fd8"/>
                 <outlet property="originalTitleValueLbl" destination="aOr-g9-RTk" id="4P4-Xq-6c8"/>
@@ -321,11 +323,43 @@
                         <constraint firstItem="dSo-TT-Lth" firstAttribute="centerY" secondItem="38B-Cc-dkp" secondAttribute="centerY" id="yWo-Nf-O5n"/>
                     </constraints>
                 </view>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Hso-47-sNh">
+                    <rect key="frame" x="32" y="389.33333333333331" width="329" height="73.333333333333314"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's something wrong here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agg-x2-Fdb">
+                            <rect key="frame" x="0.0" y="0.0" width="329" height="19.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.079399016619999999" green="0.12908678639999999" blue="0.2294790095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkA-VF-sHr">
+                            <rect key="frame" x="0.0" y="33.333333333333371" width="329" height="40"/>
+                            <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="0fA-Xx-9fY"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Retry">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="retryBtnPressed:" destination="-1" eventType="touchUpInside" id="eFh-jT-6xw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Wqj-1W-l2i" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5EF-TW-okr"/>
+                <constraint firstItem="Hso-47-sNh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="5Ea-4b-yeW"/>
+                <constraint firstItem="Hso-47-sNh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7JC-ld-4hl"/>
                 <constraint firstItem="01T-ai-kju" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="A5b-oe-6ou"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="01T-ai-kju" secondAttribute="bottom" id="Seg-oD-Riq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="01T-ai-kju" secondAttribute="trailing" id="Sgk-Mf-TJV"/>
@@ -335,6 +369,7 @@
                 <constraint firstItem="4v4-AF-aDI" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.371501" id="bjt-Ab-YQY"/>
                 <constraint firstItem="Wqj-1W-l2i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pU4-tD-Q43"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wqj-1W-l2i" secondAttribute="trailing" id="rcD-kZ-ugx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hso-47-sNh" secondAttribute="trailing" constant="32" id="tsG-V5-xoA"/>
             </constraints>
             <point key="canvasLocation" x="55.725190839694655" y="20.422535211267608"/>
         </view>

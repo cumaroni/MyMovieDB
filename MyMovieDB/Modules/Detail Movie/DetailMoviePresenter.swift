@@ -20,6 +20,10 @@ final class DetailMoviePresenter {
 extension DetailMoviePresenter: DetailMoviePresenterDelegate {
     
     func viewDidLoad() {
+        getMovieDetail()
+    }
+    
+    func getMovieDetail() {
         view?.showLoadingView(true)
         interactor.getMovieDetail(view?.movieId ?? 0)
     }
@@ -47,6 +51,7 @@ extension DetailMoviePresenter: DetailMoviePresenterDelegate {
 extension DetailMoviePresenter: DetailMovieInteractorOutputDelegate {
     
     func successGetMovieDetail(_ response: ApiResponse<DetailMovieModel>) {
+        view?.hideErrorView()
         view?.setDetailMovieData(response.model)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.view?.showLoadingView(false)
@@ -54,10 +59,10 @@ extension DetailMoviePresenter: DetailMovieInteractorOutputDelegate {
     }
     
     func failedGetMovieDetail(_ error: ApiError) {
+        view?.showErrorView(error)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.view?.showLoadingView(false)
         }
-        print("FAILED GET MOVIE DETAIL, MESSAGE: \(error.messages)")
     }
     
     

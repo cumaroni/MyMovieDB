@@ -11,12 +11,14 @@ protocol DetailMovieViewControllerDelegate: AnyObject {
     var movieId: Int { get }
     func setDetailMovieData(_ data: DetailMovieModel)
     func showLoadingView(_ toggle: Bool)
+    func showErrorView(_ error: ApiError)
+    func hideErrorView()
 }
 
 protocol DetailMoviePresenterDelegate: AnyObject {
     
     func viewDidLoad()
-    
+    func getMovieDetail()
     func backToDiscover() 
     func pushToYoutubeWith(_ key: String)
     func pushToReview(_ movieId: Int)
