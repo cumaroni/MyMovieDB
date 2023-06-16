@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MyMovieDB" customModuleProvider="target">
             <connections>
+                <outlet property="errorLbl" destination="oNW-XU-8vx" id="eSG-GI-kui"/>
+                <outlet property="errorView" destination="uvC-uO-B8E" id="jLC-J1-RZF"/>
                 <outlet property="genreListCollection" destination="6IS-Er-u23" id="TPl-px-Bva"/>
                 <outlet property="moviesTblView" destination="qh7-uc-35w" id="zTN-Fz-EQe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -46,16 +48,49 @@
                         <outlet property="delegate" destination="-1" id="HYO-7J-Cgp"/>
                     </connections>
                 </tableView>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="uvC-uO-B8E">
+                    <rect key="frame" x="24" y="389.33333333333331" width="345" height="73.333333333333314"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's something wrong here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNW-XU-8vx">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="19.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.079399016619999999" green="0.12908678639999999" blue="0.2294790095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL7-tc-Abf">
+                            <rect key="frame" x="0.0" y="33.333333333333371" width="345" height="40"/>
+                            <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="tZ5-wp-XIm"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Retry">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="retryBtnPressed:" destination="-1" eventType="touchUpInside" id="SUD-uQ-aBJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6IS-Er-u23" secondAttribute="trailing" id="85n-Rr-J3d"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uvC-uO-B8E" secondAttribute="trailing" constant="24" id="8Eq-O0-vJP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qh7-uc-35w" secondAttribute="bottom" id="9qt-wR-zhr"/>
+                <constraint firstItem="uvC-uO-B8E" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NPr-xG-aRg"/>
                 <constraint firstItem="qh7-uc-35w" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Uvt-oi-dvZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qh7-uc-35w" secondAttribute="trailing" id="eb4-UO-wgY"/>
                 <constraint firstItem="6IS-Er-u23" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kGZ-LT-AS6"/>
                 <constraint firstItem="qh7-uc-35w" firstAttribute="top" secondItem="6IS-Er-u23" secondAttribute="bottom" id="o3e-il-gkB"/>
+                <constraint firstItem="uvC-uO-B8E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="q4V-qa-ke6"/>
                 <constraint firstItem="6IS-Er-u23" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ug6-82-u3Z"/>
             </constraints>
             <point key="canvasLocation" x="-82" y="20"/>

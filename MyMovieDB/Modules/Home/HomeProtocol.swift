@@ -10,20 +10,23 @@ import UIKit
 protocol HomeViewControllerDelegate: AnyObject {
     func setGenreListData(_ data: [GenreListModel])
     func setMovieListData(_ data: [MoviesListModel], totalResult: Int)
-    func reloadCollectionView()
-    func selectCell(at indexPath: IndexPath)
+    func reloadCollectionView() 
+    func removeAllMovieData()
     func getFirstGenreIndexId() -> Int
     func reloadTblView()
-    func showLoadingView(_ toggle: Bool) 
+    func showLoadingView(_ toggle: Bool)
+    func showGenreErrorView(_ error: ApiError)
+    func showMovieErrorView(_ error: ApiError)
+    func hideError()
 }
 
 protocol HomePresenterDelegate: AnyObject {
     
     func viewDidLoad()
-    func isLoading() -> Bool
+    func getGenreList() 
     func didSelectGenre(id: Int, at index: IndexPath, isRefresh: Bool)
     func getSelectedGenreIndex() -> IndexPath?
-    func selectFirstCell()
+    func selectGenreCell()
     func loadNextMoviePage(id: Int)
     
     func pushToMovieDetail(_ movieId: Int)
@@ -35,8 +38,7 @@ protocol HomeRouterDelegate: AnyObject {
 }
 
 protocol HomeInteractorInputDelegate: AnyObject {
-    
-    var isLoadingData: Bool { get }
+     
     func getGenreList()
     func getMovieListByGenre(id: Int, page: Int)
     

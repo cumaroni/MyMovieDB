@@ -10,7 +10,6 @@ import Foundation
 final class HomeInteractor {
     weak var presenter: HomeInteractorOutputDelegate? 
     private var homeDM: HomeDMRequestProtocol?
-    var isLoadingData: Bool = false
     
     init(presenter: HomeInteractorOutputDelegate?) {
         self.presenter = presenter
@@ -26,7 +25,6 @@ extension HomeInteractor: HomeInteractorInputDelegate {
     }
     
     func getMovieListByGenre(id: Int, page: Int) {
-        isLoadingData = true
         homeDM?.getMoviesByGenre(id, page)
     }
      
@@ -47,9 +45,7 @@ extension HomeInteractor: HomeResponseProtocol {
         presenter?.successGetMovieList(response)
     }
     
-    func failedGetMovieList(_ error: ApiError) {
+    func failedGetMovieList(_ error: ApiError) { 
         presenter?.failedGetMovieList(error)
     }
-    
-    
 }

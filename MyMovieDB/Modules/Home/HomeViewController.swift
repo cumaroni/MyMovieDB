@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
+    @IBOutlet weak var errorView: UIStackView!
+    @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var genreListCollection: UICollectionView!
     @IBOutlet weak var moviesTblView: UITableView!
     
@@ -57,39 +60,56 @@ class HomeViewController: UIViewController {
     }
     
     @objc func pullToRefresh() {
+        requestMovieList()
+    }
+    
+    @IBAction func retryBtnPressed(_ sender: Any) {
+        if genreListCollection.isHidden == true {
+            presenter.getGenreList()
+        } else {
+            requestMovieList()
+        }
+    }
+    
+    private func requestMovieList() {
         self.movieListData.removeAll()
         let index = presenter.getSelectedGenreIndex() ?? IndexPath(row: 0, section: 0)
-        presenter.didSelectGenre(id: genreListData[index.row].id, at: index, isRefresh: true)
+        presenter.didSelectGenre(
+            id: genreListData[index.row].id,
+            at: index,
+            isRefresh: true
+        )
     }
+    
 }
 
 extension HomeViewController: HomeViewControllerDelegate {
     
     func setGenreListData(_ data: [GenreListModel]) {
-        self.genreListData = data
-        presenter.selectFirstCell()
+        genreListData = data
+        presenter.selectGenreCell()
     }
     
     func setMovieListData(_ data: [MoviesListModel], totalResult: Int) {
-        self.movieListData += data
+        movieListData += data
         self.totalResult = totalResult
     }
     
     func reloadCollectionView() {
-        self.genreListCollection.reloadData()
-    }
-    
-    func selectCell(at indexPath: IndexPath) {
-        genreListCollection.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+        genreListCollection.reloadData()
     }
     
     func getFirstGenreIndexId() -> Int {
         return genreListData[0].id
     }
     
+    func removeAllMovieData() {
+        movieListData.removeAll()
+    }
+    
     func reloadTblView() {
-        self.moviesTblView.reloadData()
-        self.refreshControl.endRefreshing() 
+        moviesTblView.reloadData() 
+        refreshControl.endRefreshing()
     }
     
     func showLoadingView(_ toggle: Bool) {
@@ -98,6 +118,25 @@ extension HomeViewController: HomeViewControllerDelegate {
         } else {
             self.moviesTblView.hideLoadingVIew()
         }
+    }
+    
+    func showMovieErrorView(_ error: ApiError) {
+        errorLbl.text = error.messages
+        moviesTblView.isHidden = true
+        errorView.isHidden = false
+    }
+    
+    func showGenreErrorView(_ error: ApiError) {
+        errorLbl.text = error.messages
+        genreListCollection.isHidden = true
+        moviesTblView.isHidden = true
+        errorView.isHidden = false
+    }
+    
+    func hideError() {
+        genreListCollection.isHidden = false
+        moviesTblView.isHidden = false
+        errorView.isHidden = true
     }
     
 }
@@ -130,15 +169,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        UIView.animate(withDuration: 2) {
-            self.moviesTblView.scrollsToTop = true
+        if !movieListData.isEmpty {
+            moviesTblView.scrollToRow(
+                at: IndexPath(row: 0, section: 0),
+                at: .top, animated: true
+            )
         }
-        movieListData.removeAll()
-        presenter.didSelectGenre(
-            id: genreListData[indexPath.row].id,
-            at: indexPath,
-            isRefresh: false
-        )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.presenter.didSelectGenre(
+                id: self.genreListData[indexPath.row].id,
+                at: indexPath,
+                isRefresh: false
+            )
+        }
     }
 }
 
@@ -149,7 +192,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        print(movieListData.count)
         return movieListData.count
     }
     
@@ -172,7 +214,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let lastSection = tableView.numberOfSections - 1
         let lastRow = tableView.numberOfRows(inSection: lastSection) - 1
         
-        if indexPath.section == lastSection && indexPath.row == lastRow {
+        if indexPath.section == lastSection && indexPath.row == lastRow { 
             if totalResult == movieListData.count { return }
             let index = presenter.getSelectedGenreIndex() ?? IndexPath(row: 0, section: 0)
             presenter.loadNextMoviePage(id: genreListData[index.row].id)
