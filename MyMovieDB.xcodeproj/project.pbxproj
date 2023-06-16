@@ -10,6 +10,7 @@
 		21807182D9ECFD5A39B59330 /* Pods_MyMovieDB_MyMovieDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4053C88A327202E0DC0355 /* Pods_MyMovieDB_MyMovieDBUITests.framework */; };
 		8925DEEFAB01D01E77A32ABF /* Pods_MyMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1913EAE2F4B5BBD851B0BA32 /* Pods_MyMovieDB.framework */; };
 		9F29ADDF37B1A261D0143E0E /* Pods_MyMovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE9D76630C3948CD86CBEBA /* Pods_MyMovieDBTests.framework */; };
+		BA2EA9F12A3C1F9800030E91 /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EA9F02A3C1F9800030E91 /* UIScrollView+Extensions.swift */; };
 		BA4179A02A396CB70030597B /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41799F2A396CB70030597B /* HomeDataManager.swift */; };
 		BA4179A22A396CC10030597B /* HomeRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4179A12A396CC10030597B /* HomeRemote.swift */; };
 		BA4179A42A396CC90030597B /* HomeDMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4179A32A396CC90030597B /* HomeDMProtocol.swift */; };
@@ -99,6 +100,7 @@
 		36D9F96A84015BAD663E5C83 /* Pods-MyMovieDB-MyMovieDBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMovieDB-MyMovieDBUITests.release.xcconfig"; path = "Target Support Files/Pods-MyMovieDB-MyMovieDBUITests/Pods-MyMovieDB-MyMovieDBUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8BE9D76630C3948CD86CBEBA /* Pods_MyMovieDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovieDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4053C88A327202E0DC0355 /* Pods_MyMovieDB_MyMovieDBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMovieDB_MyMovieDBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2EA9F02A3C1F9800030E91 /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		BA41799F2A396CB70030597B /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		BA4179A12A396CC10030597B /* HomeRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRemote.swift; sourceTree = "<group>"; };
 		BA4179A32A396CC90030597B /* HomeDMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDMProtocol.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				BAF9C7FB2A3A323000843614 /* UITableView+Extensions.swift */,
 				BA76B5492A3AF7F800D87CE5 /* Double+Extensions.swift */,
 				BA76B5702A3B26DB00D87CE5 /* String+Extensions.swift */,
+				BA2EA9F02A3C1F9800030E91 /* UIScrollView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				BA4179BD2A398C890030597B /* GenreListModel.swift in Sources */,
 				BA81E6882A3823BE00F16F2B /* SceneDelegate.swift in Sources */,
 				BA4179C02A3990B60030597B /* GenreListCell.swift in Sources */,
+				BA2EA9F12A3C1F9800030E91 /* UIScrollView+Extensions.swift in Sources */,
 				BA81E6BE2A38403000F16F2B /* BaseSource.swift in Sources */,
 				BA81E6C52A3844CB00F16F2B /* CGSize+Extensions.swift in Sources */,
 				BA76B5612A3B11EC00D87CE5 /* ReviewListRouter.swift in Sources */,

@@ -11,6 +11,8 @@ import SkeletonView
 
 class ReviewListViewController: UIViewController {
     
+    @IBOutlet weak var errorView: UIStackView!
+    @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var reviewTblView: UITableView!
     
     lazy var presenter: ReviewListPresenterDelegate = ReviewListPresenter(view: self)
@@ -37,6 +39,11 @@ class ReviewListViewController: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         presenter.backToMovieDetail()
     }
+    
+    @IBAction func retryBtnPressed(_ sender: Any) {
+        presenter.getReviewList()
+    }
+    
 }
 
 extension ReviewListViewController: ReviewListViewControllerDelegate {
@@ -44,8 +51,7 @@ extension ReviewListViewController: ReviewListViewControllerDelegate {
     func setReviewListData(_ data: [ReviewListModel], totalResult: Int) {
         reviewListData += data
         reviewTblView.reloadData()
-        self.totalResult = totalResult
-        print(reviewListData.count)
+        self.totalResult = totalResult 
     }
     
     func showLoadingView(_ toggle: Bool) {
@@ -54,6 +60,17 @@ extension ReviewListViewController: ReviewListViewControllerDelegate {
         } else {
             self.reviewTblView.hideSkeleton()
         }
+    }
+    
+    func showErrorView(_ error: ApiError) {
+        reviewTblView.isHidden = true
+        errorLbl.text = error.messages
+        errorView.isHidden = false
+    }
+    
+    func hideErrorView() {
+        reviewTblView.isHidden = false
+        errorView.isHidden = true
     }
     
 }

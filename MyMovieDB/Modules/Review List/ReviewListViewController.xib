@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReviewListViewController" customModule="MyMovieDB" customModuleProvider="target">
             <connections>
+                <outlet property="errorLbl" destination="EX6-pp-gEY" id="bXW-ef-1M9"/>
+                <outlet property="errorView" destination="Y7B-Cj-l1u" id="Hw2-LG-SDz"/>
                 <outlet property="reviewTblView" destination="kfb-a1-eK2" id="ryB-X9-wRD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -60,16 +62,49 @@
                         <outlet property="delegate" destination="-1" id="5Np-kd-IXM"/>
                     </connections>
                 </tableView>
+                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Y7B-Cj-l1u">
+                    <rect key="frame" x="24" y="297" width="327" height="73.333333333333314"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's something wrong here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EX6-pp-gEY">
+                            <rect key="frame" x="0.0" y="0.0" width="327" height="19.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.079399016619999999" green="0.12908678639999999" blue="0.2294790095" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5h-dS-hth">
+                            <rect key="frame" x="0.0" y="33.333333333333314" width="327" height="40"/>
+                            <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="z3E-yp-R1t"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Retry">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="retryBtnPressed:" destination="-1" eventType="touchUpInside" id="wfy-AC-TMt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Y7B-Cj-l1u" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="6tU-TK-UJ9"/>
                 <constraint firstItem="kfb-a1-eK2" firstAttribute="top" secondItem="HXc-P8-Uqw" secondAttribute="bottom" id="Cpf-0M-OcG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kfb-a1-eK2" secondAttribute="bottom" id="WB2-vq-gnD"/>
+                <constraint firstItem="kfb-a1-eK2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="H2y-uM-KOb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y7B-Cj-l1u" secondAttribute="trailing" constant="24" id="Pai-we-Ggn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HXc-P8-Uqw" secondAttribute="trailing" id="Yrc-eQ-9iR"/>
                 <constraint firstItem="HXc-P8-Uqw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dXb-se-1fd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kfb-a1-eK2" secondAttribute="trailing" id="lbC-aH-Lq6"/>
                 <constraint firstItem="kfb-a1-eK2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="otv-yk-MJF"/>
+                <constraint firstItem="Y7B-Cj-l1u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="tRt-pC-tKq"/>
+                <constraint firstItem="kfb-a1-eK2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vPc-wy-3nf"/>
                 <constraint firstItem="HXc-P8-Uqw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xAW-Ig-cYn"/>
             </constraints>
             <point key="canvasLocation" x="53" y="21"/>

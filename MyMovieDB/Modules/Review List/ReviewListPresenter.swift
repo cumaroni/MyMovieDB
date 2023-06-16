@@ -22,6 +22,10 @@ final class ReviewListPresenter {
 extension ReviewListPresenter: ReviewListPresenterDelegate {
     
     func viewDidLoad() {
+        getReviewList()
+    }
+    
+    func getReviewList() {
         view?.showLoadingView(true)
         interactor.getReviewList(view?.movieId ?? 0, currentPage)
     }
@@ -41,6 +45,7 @@ extension ReviewListPresenter: ReviewListPresenterDelegate {
 extension ReviewListPresenter: ReviewListInteractorOutputDelegate {
     
     func successGetReviewList(_ response: ApiResponse<ReviewListModel>) {
+        view?.hideErrorView()
         view?.setReviewListData(response.data, totalResult: response.totalResult)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.view?.showLoadingView(false)
@@ -48,10 +53,10 @@ extension ReviewListPresenter: ReviewListInteractorOutputDelegate {
     }
     
     func failedGetReviewList(_ error: ApiError) {
+        view?.showErrorView(error)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.view?.showLoadingView(false)
-        }
-        print("FAILED GET REVIEW LIST, MESSAGE: \(error.messages)")
+        } 
     }
     
     

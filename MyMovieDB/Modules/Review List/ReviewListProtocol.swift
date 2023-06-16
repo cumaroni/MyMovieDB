@@ -15,11 +15,14 @@ protocol ReviewListViewControllerDelegate: AnyObject {
     var movieId: Int { get }
     func setReviewListData(_ data: [ReviewListModel], totalResult: Int)
     func showLoadingView(_ toggle: Bool)
+    func showErrorView(_ error: ApiError)
+    func hideErrorView()
 }
 
 protocol ReviewListPresenterDelegate: AnyObject {
     
     func viewDidLoad()
+    func getReviewList()
     func backToMovieDetail()
     func loadNextReviewPage(id: Int)
 }
